@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import './App.css';
 import dogImg from './assets/dog.jpg';
 import catImg from './assets/cat.jpg';
@@ -173,11 +174,31 @@ export default function Survey() {
     </header>
   );
 
-  if (result) {
-    return (
-      <>
-        {Header}
-        <div style={{ height: 56 }} />
+  return (
+    <>
+      <Helmet>
+        <title>{dict.title}</title>
+        <meta name="description" content={lang === 'ko' ? '간단한 설문으로 나에게 어울리는 반려동물이 강아지인지 고양이인지 추천해드립니다.' : 'A simple survey to find out whether a dog or a cat suits you better.'} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="findpet" />
+        <link rel="canonical" href={window.location.href} />
+        {/* Open Graph */}
+        <meta property="og:title" content={dict.title} />
+        <meta property="og:description" content={lang === 'ko' ? '간단한 설문으로 나에게 어울리는 반려동물이 강아지인지 고양이인지 추천해드립니다.' : 'A simple survey to find out whether a dog or a cat suits you better.'} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={window.location.origin + '/src/assets/dog.jpg'} />
+        <meta property="og:locale" content={lang === 'ko' ? 'ko_KR' : 'en_US'} />
+        <meta property="og:url" content={window.location.href} />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={dict.title} />
+        <meta name="twitter:description" content={lang === 'ko' ? '간단한 설문으로 나에게 어울리는 반려동물이 강아지인지 고양이인지 추천해드립니다.' : 'A simple survey to find out whether a dog or a cat suits you better.'} />
+        <meta name="twitter:image" content={window.location.origin + '/src/assets/dog.jpg'} />
+      </Helmet>
+      {Header}
+      <div style={{ height: 56 }} />
+      {result ? (
         <div className="survey-container">
           <div className="survey-result-title">{dict.resultTitle}</div>
           <img
@@ -190,27 +211,21 @@ export default function Survey() {
             {dict.result[result]}
           </div>
         </div>
-      </>
-    );
-  }
-
-  return (
-    <>
-      {Header}
-      <div style={{ height: 56 }} />
-      <div className="survey-container">
-        <div className="survey-title">{dict.title}</div>
-        <div className="survey-question">{dict.questions[step].q}</div>
-        {shuffledOptionsList[step].map((opt, idx) => (
-          <button
-            key={idx}
-            className="survey-btn"
-            onClick={() => handleOptionClick(idx)}
-          >
-            {opt}
-          </button>
-        ))}
-      </div>
+      ) : (
+        <div className="survey-container">
+          <div className="survey-title">{dict.title}</div>
+          <div className="survey-question">{dict.questions[step].q}</div>
+          {shuffledOptionsList[step].map((opt, idx) => (
+            <button
+              key={idx}
+              className="survey-btn"
+              onClick={() => handleOptionClick(idx)}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
     </>
   );
 }
