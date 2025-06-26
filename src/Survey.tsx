@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import './App.css';
 import dogImg from './assets/dog.jpg';
 import catImg from './assets/cat.jpg';
@@ -175,7 +175,7 @@ export default function Survey() {
   );
 
   return (
-    <HelmetProvider>
+    <>
       <Helmet>
         <title>{dict.title}</title>
         <meta name="description" content={lang === 'ko' ? '간단한 설문으로 나에게 어울리는 반려동물이 강아지인지 고양이인지 추천해드립니다.' : 'A simple survey to find out whether a dog or a cat suits you better.'} />
@@ -226,6 +226,6 @@ export default function Survey() {
           ))}
         </div>
       )}
-    </HelmetProvider>
+    </>
   );
 }
