@@ -1,0 +1,121 @@
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.survey-container {
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 40px 32px 32px 32px;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.survey-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #3730a3;
+}
+.survey-question {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #22223b;
+}
+.survey-btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #6366f1;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.survey-btn:hover {
+  background: #3730a3;
+}
+.survey-result-title {
+  font-size: 1.5rem;
+  color: #16a34a;
+  margin-bottom: 12px;
+}
+.survey-result-animal {
+  font-size: 2.5rem;
+  margin: 16px 0;
+  font-weight: bold;
+  color: #f59e42;
+  letter-spacing: 2px;
+}
+.survey-result-animal.dog {
+  color: #f59e42;
+}
+.survey-result-animal.cat {
+  color: #6366f1;
+}
+.survey-result-desc {
+  color: #374151;
+  font-size: 1rem;
+  margin-top: 8px;
+}
